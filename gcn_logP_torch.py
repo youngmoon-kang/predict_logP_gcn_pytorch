@@ -13,7 +13,6 @@ import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 import matplotlib.pyplot as plt
 
-# from utils import read_ZINC_smiles, smiles_to_onehot, convert_to_graph
 from utils2 import read_smiles, get_logP, convert_to_graph
 from rdkit import Chem, DataStructs
 from rdkit.Chem import AllChem
@@ -22,12 +21,6 @@ import time
 import argparse
 
 def make_partition():
-    #smi_total, logP_total, tpsa_total = read_ZINC_smiles(50000)
-    # smi_total = []
-    # with open("smi_list.txt", "r") as f:
-    #   for line in f:
-    #     smi_total.append(str(line.strip()))
-    # logP_total = np.load('logP_list.npy')
     
     smi_total = np.array(read_smiles('ZINC.smiles', 50000))
     logP_total = np.array(get_logP(smi_total))
